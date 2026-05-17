@@ -9,8 +9,14 @@
     />
     <meta property="og:title" content="Prathik & Harshitha Wedding Invitation" />
     <meta property="og:description" content="Join us on Wednesday, December 23, 2026 at 11:28 AM." />
-    <meta property="og:image" content="assets/invitation-palette.jpg" />
+    <meta property="og:image" content="assets/share-preview.svg" />
     <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Prathik & Harshitha | Wedding Invitation</title>
     <style>
       /*
@@ -624,43 +630,6 @@
         color: var(--muted);
       }
 
-      .mini-map {
-        display: grid;
-        min-height: 260px;
-        margin-top: 26px;
-        place-items: center;
-        border: 1px solid rgba(245, 213, 138, 0.26);
-        border-radius: var(--radius);
-        background:
-          linear-gradient(135deg, rgba(255, 240, 189, 0.11) 0 25%, transparent 25% 50%, rgba(145, 166, 109, 0.12) 50% 75%, transparent 75%),
-          linear-gradient(rgba(8, 11, 60, 0.84), rgba(8, 11, 60, 0.84));
-        background-size: 56px 56px, cover;
-      }
-
-      .mini-map__pin {
-        display: grid;
-        width: 112px;
-        height: 112px;
-        place-items: center;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        color: var(--ink);
-        background: var(--champagne);
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
-      }
-
-      .mini-map__pin svg {
-        width: 42px;
-        height: 42px;
-      }
-
-      .rsvp-layout {
-        display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
-        gap: 34px;
-        align-items: start;
-      }
-
       form {
         display: grid;
         gap: 14px;
@@ -758,8 +727,7 @@
           display: none;
         }
 
-        .panel--split .panel__inner,
-        .rsvp-layout {
+        .panel--split .panel__inner {
           grid-template-columns: 1fr;
           gap: 28px;
         }
@@ -767,6 +735,11 @@
         .panel--split .motif {
           width: min(82vw, 320px);
           opacity: 0.72;
+        }
+
+        #couple .motif,
+        #ceremony .motif {
+          display: none;
         }
 
         h1 {
@@ -810,6 +783,14 @@
           min-height: auto;
           padding: 52px 14px;
           scroll-snap-align: none;
+        }
+
+        #couple {
+          padding-bottom: 28px;
+        }
+
+        #ceremony {
+          padding-top: 28px;
         }
 
         .hero {
@@ -886,6 +867,552 @@
         }
       }
 
+      .loader {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: grid;
+        place-items: center;
+        color: var(--champagne);
+        background:
+          radial-gradient(circle at 50% 42%, rgba(245, 213, 138, 0.16), transparent 18rem),
+          linear-gradient(180deg, #020426, var(--ink));
+        transition:
+          opacity 450ms ease,
+          visibility 450ms ease;
+      }
+
+      .loader.is-hidden {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .loader__mark {
+        display: grid;
+        gap: 20px;
+        place-items: center;
+      }
+
+      .loader__mark svg {
+        width: 118px;
+        height: 118px;
+        filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.34));
+      }
+
+      .loader__mark span {
+        color: rgba(255, 249, 232, 0.74);
+        font-family: "Cinzel", "Times New Roman", serif;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+      }
+
+      .loader__mark text {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+      }
+
+      body {
+        font-family: "Cormorant Garamond", Georgia, Cambria, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(245, 213, 138, 0.1), transparent 28rem),
+          linear-gradient(180deg, #020426 0%, var(--ink) 34%, #070a3a 68%, #020426 100%);
+      }
+
+      .progress {
+        height: 3px;
+      }
+
+      .quick-actions {
+        right: 22px;
+        bottom: 22px;
+        padding: 8px;
+        border: 1px solid rgba(245, 213, 138, 0.28);
+        border-radius: 999px;
+        background: rgba(3, 6, 47, 0.72);
+        box-shadow: 0 22px 58px rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(16px);
+      }
+
+      .quick-actions a,
+      .quick-actions button {
+        width: auto;
+        min-width: 44px;
+        height: 44px;
+        grid-template-columns: auto auto;
+        gap: 8px;
+        padding: 0 13px;
+        border-color: rgba(245, 213, 138, 0.32);
+        border-radius: 999px;
+        color: var(--champagne);
+        background: rgba(255, 249, 232, 0.08);
+        box-shadow: none;
+      }
+
+      .quick-actions span {
+        font-family: "Manrope", Arial, sans-serif;
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+
+      .panel {
+        padding: 84px 22px;
+      }
+
+      .eyebrow,
+      .month,
+      .button,
+      .person__role,
+      .timeline__time,
+      .footer-note,
+      .countdown small,
+      .quick-actions span,
+      label {
+        font-family: "Manrope", "Trebuchet MS", Arial, sans-serif;
+      }
+
+      .eyebrow {
+        color: rgba(255, 240, 189, 0.76);
+        font-size: 0.76rem;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Cormorant Garamond", Georgia, serif;
+      }
+
+      h1 {
+        font-size: clamp(3.25rem, 10vw, 6.4rem);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: clamp(2.25rem, 7vw, 4.4rem);
+        font-weight: 600;
+      }
+
+      h3 {
+        font-size: 1.62rem;
+      }
+
+      .hero__frame {
+        padding: 82px 42px 66px;
+        border-color: rgba(245, 213, 138, 0.5);
+        background:
+          linear-gradient(rgba(3, 6, 47, 0.64), rgba(3, 6, 47, 0.76)),
+          radial-gradient(circle at 50% 18%, rgba(255, 240, 189, 0.14), transparent 17rem),
+          radial-gradient(circle at center, rgba(245, 213, 138, 0.12), transparent 58%);
+      }
+
+      .hero__frame::before,
+      .hero__frame::after {
+        opacity: 0.34;
+      }
+
+      .monogram {
+        display: grid;
+        width: 118px;
+        height: 118px;
+        margin: 0 auto 22px;
+        place-items: center;
+      }
+
+      .monogram svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        filter: drop-shadow(0 20px 38px rgba(0, 0, 0, 0.38));
+      }
+
+      .monogram text {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 600;
+      }
+
+      .hashtag {
+        display: inline-flex;
+        margin: 8px auto 0;
+        padding: 7px 12px;
+        border: 1px solid rgba(245, 213, 138, 0.3);
+        border-radius: 999px;
+        color: var(--champagne);
+        background: rgba(255, 249, 232, 0.06);
+        font-family: "Manrope", Arial, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .ornament {
+        display: block;
+        width: min(100%, 360px);
+        height: 38px;
+        margin: 22px auto;
+        color: var(--gold);
+        opacity: 0.72;
+      }
+
+      .date-strip {
+        max-width: 680px;
+        padding: 12px;
+        border: 1px solid rgba(245, 213, 138, 0.22);
+        background: rgba(255, 249, 232, 0.045);
+      }
+
+      .date-strip__side {
+        font-family: "Manrope", Arial, sans-serif;
+      }
+
+      .button {
+        border-color: rgba(255, 240, 189, 0.42);
+        background: linear-gradient(135deg, #f8d879, #fff0bd 48%, #c99643);
+      }
+
+      .button--ghost {
+        color: var(--champagne);
+        background: rgba(255, 249, 232, 0.055);
+      }
+
+      .blessing-grid {
+        gap: 18px;
+      }
+
+      .person {
+        position: relative;
+        min-height: 196px;
+        padding: 28px;
+        background:
+          linear-gradient(145deg, rgba(255, 249, 232, 0.09), rgba(255, 249, 232, 0.035)),
+          rgba(8, 11, 60, 0.34);
+        box-shadow: inset 0 0 0 1px rgba(255, 240, 189, 0.08);
+        overflow: hidden;
+      }
+
+      .person::after {
+        position: absolute;
+        right: -34px;
+        bottom: -44px;
+        width: 132px;
+        height: 132px;
+        content: "";
+        border: 1px solid rgba(245, 213, 138, 0.18);
+        border-radius: 50%;
+      }
+
+      .person__role {
+        position: relative;
+        z-index: 1;
+        color: #03062f;
+      }
+
+      .person h3,
+      .person p {
+        position: relative;
+        z-index: 1;
+      }
+
+      .ceremony-card {
+        max-width: 720px;
+        padding: 42px;
+        text-align: center;
+        background:
+          radial-gradient(circle at 50% 24%, rgba(245, 213, 138, 0.18), transparent 24rem),
+          linear-gradient(155deg, rgba(255, 249, 232, 0.075), rgba(255, 249, 232, 0.025)),
+          rgba(8, 11, 60, 0.92);
+      }
+
+      .ceremony-card__grid {
+        display: none;
+      }
+
+      .muhurat-seal {
+        display: grid;
+        width: min(100%, 330px);
+        aspect-ratio: 1;
+        margin: 28px auto;
+        place-items: center;
+        border: 1px solid rgba(245, 213, 138, 0.38);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(255, 240, 189, 0.13), transparent 44%),
+          repeating-conic-gradient(
+            from 0deg,
+            rgba(245, 213, 138, 0.16) 0deg 4deg,
+            transparent 4deg 11deg
+          );
+        box-shadow:
+          inset 0 0 0 16px rgba(3, 6, 47, 0.64),
+          inset 0 0 0 18px rgba(245, 213, 138, 0.16);
+      }
+
+      .muhurat-seal__inner {
+        display: grid;
+        place-items: center;
+      }
+
+      .muhurat-seal small {
+        color: rgba(255, 249, 232, 0.76);
+        font-family: "Manrope", Arial, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .muhurat-seal strong {
+        color: var(--gold);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(4.4rem, 16vw, 7.2rem);
+        font-weight: 600;
+        line-height: 0.86;
+      }
+
+      .muhurat-seal span {
+        color: var(--champagne);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 2rem;
+      }
+
+      .muhurat-details {
+        display: grid;
+        max-width: 520px;
+        margin: 0 auto 24px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-top: 1px solid rgba(245, 213, 138, 0.28);
+        border-bottom: 1px solid rgba(245, 213, 138, 0.28);
+      }
+
+      .muhurat-details span {
+        padding: 14px 10px;
+        color: var(--champagne);
+        font-family: "Manrope", Arial, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .muhurat-details span + span {
+        border-left: 1px solid rgba(245, 213, 138, 0.18);
+      }
+
+      .countdown {
+        max-width: 560px;
+        margin: 26px auto 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .countdown span {
+        min-height: 70px;
+        border-color: rgba(245, 213, 138, 0.18);
+        background: rgba(255, 249, 232, 0.045);
+      }
+
+      .countdown strong {
+        font-size: 1.56rem;
+      }
+
+      .timeline {
+        position: relative;
+      }
+
+      .timeline::before {
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        left: 102px;
+        width: 1px;
+        content: "";
+        background: linear-gradient(transparent, rgba(245, 213, 138, 0.36), transparent);
+      }
+
+      .timeline__item {
+        border-bottom-color: rgba(245, 213, 138, 0.16);
+      }
+
+      .venue-box {
+        position: relative;
+        width: min(100%, 700px);
+        margin: 0 auto;
+        padding: 38px;
+        background:
+          radial-gradient(circle at 12% 0%, rgba(255, 240, 189, 0.12), transparent 18rem),
+          linear-gradient(145deg, rgba(255, 249, 232, 0.09), rgba(255, 249, 232, 0.035));
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 240, 189, 0.08),
+          0 22px 58px rgba(0, 0, 0, 0.26);
+      }
+
+      .venue-meta {
+        display: grid;
+        gap: 8px;
+        margin: 24px 0 0;
+        color: var(--muted);
+        font-family: "Manrope", Arial, sans-serif;
+        font-size: 0.88rem;
+      }
+
+      .venue-box .button-row {
+        margin-top: 26px;
+      }
+
+      .closing .motif {
+        width: min(100%, 240px);
+      }
+
+      .closing .hashtag {
+        margin-top: 18px;
+      }
+
+      @media (max-width: 860px) {
+        .panel {
+          padding: 54px 16px;
+        }
+
+        .quick-actions {
+          top: auto;
+          right: 50%;
+          bottom: 14px;
+          transform: translateX(50%);
+        }
+
+        .hero {
+          padding-top: 34px;
+          padding-bottom: 86px;
+        }
+
+        .hero__frame {
+          padding: 54px 20px 34px;
+        }
+
+        .monogram {
+          width: 96px;
+          height: 96px;
+          margin-bottom: 16px;
+        }
+
+        .date-strip {
+          margin-top: 26px;
+        }
+
+        .blessing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .person {
+          min-height: auto;
+          padding: 22px;
+        }
+
+        .muhurat-seal {
+          width: min(76vw, 238px);
+          margin: 22px auto;
+        }
+
+        .muhurat-seal strong {
+          font-size: 4.8rem;
+        }
+
+        .muhurat-details {
+          grid-template-columns: 1fr;
+        }
+
+        .muhurat-details span + span {
+          border-top: 1px solid rgba(245, 213, 138, 0.18);
+          border-left: 0;
+        }
+
+        .timeline::before {
+          display: none;
+        }
+
+        .venue-box {
+          padding: 28px 22px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        body {
+          padding-bottom: 64px;
+        }
+
+        .quick-actions {
+          width: calc(100% - 28px);
+          padding: 5px;
+          justify-content: center;
+        }
+
+        .quick-actions a,
+        .quick-actions button {
+          flex: 1;
+          height: 40px;
+          min-width: 0;
+          padding: 0 10px;
+          justify-content: center;
+        }
+
+        .hero {
+          padding-top: 18px;
+          padding-bottom: 82px;
+        }
+
+        .hero__frame {
+          padding: 28px 18px 30px;
+        }
+
+        .monogram {
+          width: 74px;
+          height: 74px;
+          margin-bottom: 10px;
+        }
+
+        h1 {
+          margin-bottom: 10px;
+          font-size: 2.75rem;
+        }
+
+        h1 .amp {
+          font-size: 1.48rem;
+        }
+
+        .ornament {
+          height: 28px;
+          margin: 10px auto 14px;
+        }
+
+        .hero__sub {
+          margin-bottom: 10px;
+          font-size: 0.96rem;
+        }
+
+        .hashtag {
+          margin-top: 4px;
+          padding: 5px 10px;
+          font-size: 0.72rem;
+        }
+
+        .date-strip {
+          margin-top: 12px;
+          padding: 8px;
+          gap: 4px;
+        }
+
+        .date-strip__day {
+          font-size: 3.35rem;
+        }
+
+        .year {
+          font-size: 1.08rem;
+        }
+
+        .date-strip__side {
+          min-height: 34px;
+          font-size: 0.92rem;
+        }
+
+        .countdown {
+          gap: 8px;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -904,6 +1431,23 @@
     </style>
   </head>
   <body>
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__mark">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#f5d58a" stroke-opacity="0.78" />
+          <circle cx="60" cy="60" r="42" fill="none" stroke="#fff0bd" stroke-opacity="0.36" />
+          <path
+            d="M60 8c10 18 24 32 42 42-18 10-32 24-42 42-10-18-24-32-42-42 18-10 32-24 42-42Z"
+            fill="none"
+            stroke="#f5d58a"
+            stroke-opacity="0.52"
+          />
+          <text x="60" y="70" text-anchor="middle" font-size="30" fill="#f5d58a">P&amp;H</text>
+        </svg>
+        <span>#pHmatched</span>
+      </div>
+    </div>
+
     <div class="progress" aria-hidden="true">
       <span class="progress__bar" id="progressBar"></span>
     </div>
@@ -925,6 +1469,7 @@
           />
           <circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8" />
         </svg>
+        <span>Map</span>
       </a>
       <button type="button" id="shareInvite" aria-label="Share invitation" title="Share invitation">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -937,6 +1482,7 @@
             stroke-width="1.8"
           />
         </svg>
+        <span>Share</span>
       </button>
     </div>
 
@@ -945,15 +1491,39 @@
         <div class="panel__inner">
           <div class="hero__frame">
             <div class="hero__content" data-reveal>
+              <div class="monogram" aria-hidden="true">
+                <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="54" fill="none" stroke="#f5d58a" stroke-opacity="0.82" />
+                  <circle cx="60" cy="60" r="42" fill="none" stroke="#fff0bd" stroke-opacity="0.38" />
+                  <path
+                    d="M60 8c10 18 24 32 42 42-18 10-32 24-42 42-10-18-24-32-42-42 18-10 32-24 42-42Z"
+                    fill="none"
+                    stroke="#f5d58a"
+                    stroke-opacity="0.54"
+                  />
+                  <text x="60" y="70" text-anchor="middle" font-size="30" fill="#f5d58a">P&amp;H</text>
+                </svg>
+              </div>
               <p class="eyebrow">With the blessings of our families</p>
               <h1 id="hero-title">
                 <span>Prathik</span>
                 <span class="amp">&amp;</span>
                 <span>Harshitha</span>
               </h1>
+              <svg class="ornament" viewBox="0 0 360 38" aria-hidden="true">
+                <path d="M2 19h118M240 19h118" fill="none" stroke="currentColor" stroke-width="1" />
+                <path
+                  d="M180 3c14 16 30 16 44 0-6 22-22 34-44 34s-38-12-44-34c14 16 30 16 44 0Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                />
+                <circle cx="180" cy="19" r="5" fill="currentColor" opacity="0.72" />
+              </svg>
               <p class="hero__sub">
                 Request the honour of your presence as they begin a beautiful new chapter together.
               </p>
+              <p class="hashtag">#pHmatched</p>
               <div class="date-strip" aria-label="Wedding date and time">
                 <span class="date-strip__side">Wednesday</span>
                 <span>
@@ -977,7 +1547,7 @@
                   View Invite
                 </a>
                 <a
-                  class="button button--ghost"
+                  class="button button--ghost calendar-trigger"
                   href="#"
                   id="saveDate"
                 >
@@ -1008,6 +1578,16 @@
               We warmly invite you to join the wedding celebration and bless the couple as they step
               into their life together.
             </p>
+            <svg class="ornament" viewBox="0 0 360 38" aria-hidden="true">
+              <path d="M2 19h118M240 19h118" fill="none" stroke="currentColor" stroke-width="1" />
+              <path
+                d="M180 3c14 16 30 16 44 0-6 22-22 34-44 34s-38-12-44-34c14 16 30 16 44 0Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              />
+              <circle cx="180" cy="19" r="5" fill="currentColor" opacity="0.72" />
+            </svg>
             <div class="blessing-grid">
               <article class="person">
                 <span class="person__role">Groom</span>
@@ -1031,12 +1611,18 @@
           <div class="ceremony-card" data-reveal>
             <p class="eyebrow">Wedding Muhurat</p>
             <h2 id="ceremony-title">Join us for the auspicious occasion.</h2>
-            <div class="ceremony-card__grid" aria-label="Muhurat schedule">
-              <span>Wednesday</span>
-              <strong>23</strong>
-              <span>At 11:28 AM</span>
+            <div class="muhurat-seal" aria-label="Muhurat time 11:28 AM">
+              <div class="muhurat-seal__inner">
+                <small>Muhurat</small>
+                <strong>11:28</strong>
+                <span>AM</span>
+              </div>
             </div>
-            <p class="month">December 2026</p>
+            <div class="muhurat-details" aria-label="Muhurat date and venue">
+              <span>Wednesday</span>
+              <span>December 23, 2026</span>
+              <span>Townhall Udupi</span>
+            </div>
             <p class="lede">
               Your presence and blessings will make this day even more meaningful for our families.
             </p>
@@ -1089,6 +1675,11 @@
             <p>
               We would be delighted to welcome you at the venue for the Muhurat and celebration.
             </p>
+            <div class="venue-meta" aria-label="Venue highlights">
+              <span>Wednesday, December 23, 2026</span>
+              <span>Muhurat at 11:28 AM</span>
+              <span>#pHmatched</span>
+            </div>
             <div class="button-row">
               <a
                 class="button"
@@ -1114,68 +1705,21 @@
                 </svg>
                 Open Maps
               </a>
-              <a class="button button--ghost" href="#rsvp">RSVP</a>
+              <a class="button button--ghost calendar-trigger" href="#">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  />
+                </svg>
+                Save Date
+              </a>
             </div>
           </div>
-          <div class="mini-map" aria-hidden="true">
-            <span class="mini-map__pin">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                />
-                <circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8" />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel" id="rsvp" aria-labelledby="rsvp-title">
-        <div class="panel__inner rsvp-layout">
-          <div data-reveal>
-            <p class="eyebrow">With love</p>
-            <h2 id="rsvp-title">Your blessings are the most precious gift.</h2>
-            <p class="lede">
-              Send your wishes or RSVP so the families can prepare to welcome you warmly.
-            </p>
-          </div>
-
-          <form id="rsvpForm" data-reveal>
-            <label>
-              Your name
-              <input name="name" autocomplete="name" required placeholder="Enter your name" />
-            </label>
-            <label>
-              Guests
-              <select name="guests" required>
-                <option value="1">1 guest</option>
-                <option value="2">2 guests</option>
-                <option value="3">3 guests</option>
-                <option value="4">4 guests</option>
-                <option value="5+">5+ guests</option>
-              </select>
-            </label>
-            <label>
-              Message
-              <textarea name="message" placeholder="Share your wishes"></textarea>
-            </label>
-            <button class="button" type="submit">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="m4 12 15-7-4 14-3.5-5L4 12Z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.8"
-                />
-              </svg>
-              Send RSVP
-            </button>
-          </form>
         </div>
       </section>
 
@@ -1184,10 +1728,21 @@
           <div class="motif" aria-hidden="true"></div>
           <p class="eyebrow">Prathik & Harshitha</p>
           <h2 id="closing-title">We look forward to celebrating with you.</h2>
+          <svg class="ornament" viewBox="0 0 360 38" aria-hidden="true">
+            <path d="M2 19h118M240 19h118" fill="none" stroke="currentColor" stroke-width="1" />
+            <path
+              d="M180 3c14 16 30 16 44 0-6 22-22 34-44 34s-38-12-44-34c14 16 30 16 44 0Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+            />
+            <circle cx="180" cy="19" r="5" fill="currentColor" opacity="0.72" />
+          </svg>
           <p>
             May this day be filled with joy, warmth, laughter, and the blessings of everyone we hold
             dear.
           </p>
+          <p class="hashtag">#pHmatched</p>
           <p class="footer-note">Wednesday, December 23, 2026 · 11:28 AM · Townhall Udupi</p>
         </div>
       </section>
@@ -1197,16 +1752,15 @@
       const invitation = {
         couple: "Prathik & Harshitha",
         eventDate: new Date("2026-12-23T11:28:00+05:30"),
-        venue: "Townhall Udupi",
-        whatsappNumber: ""
+        venue: "Townhall Udupi"
       };
 
       const progressBar = document.getElementById("progressBar");
       const revealSections = document.querySelectorAll(".panel");
       const countdown = document.getElementById("countdown");
       const shareInvite = document.getElementById("shareInvite");
-      const saveDate = document.getElementById("saveDate");
-      const rsvpForm = document.getElementById("rsvpForm");
+      const calendarTriggers = document.querySelectorAll(".calendar-trigger");
+      const loader = document.getElementById("loader");
 
       function updateProgress() {
         const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -1254,7 +1808,7 @@
           "DTEND:20261223T085800Z",
           "SUMMARY:Prathik & Harshitha Wedding",
           "LOCATION:Townhall Udupi",
-          "DESCRIPTION:Wedding celebration of Prathik and Harshitha.",
+          "DESCRIPTION:Wedding celebration of Prathik and Harshitha. #pHmatched",
           "BEGIN:VALARM",
           "TRIGGER:-P1D",
           "ACTION:DISPLAY",
@@ -1283,7 +1837,7 @@
       shareInvite.addEventListener("click", async () => {
         const shareData = {
           title: `${invitation.couple} Wedding Invitation`,
-          text: `You are invited to ${invitation.couple}'s wedding on Wednesday, December 23, 2026 at 11:28 AM, ${invitation.venue}.`,
+          text: `You are invited to ${invitation.couple}'s wedding on Wednesday, December 23, 2026 at 11:28 AM, ${invitation.venue}. #pHmatched`,
           url: window.location.href
         };
 
@@ -1296,33 +1850,29 @@
         shareInvite.title = "Invitation link copied";
       });
 
-      saveDate.addEventListener("click", (event) => {
-        event.preventDefault();
-        const calendarBlob = new Blob([buildCalendarFile()], { type: "text/calendar;charset=utf-8" });
-        const calendarUrl = URL.createObjectURL(calendarBlob);
-        const download = document.createElement("a");
+      calendarTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", (event) => {
+          event.preventDefault();
+          const calendarBlob = new Blob([buildCalendarFile()], {
+            type: "text/calendar;charset=utf-8"
+          });
+          const calendarUrl = URL.createObjectURL(calendarBlob);
+          const download = document.createElement("a");
 
-        download.href = calendarUrl;
-        download.download = "prathik-harshitha-wedding.ics";
-        document.body.append(download);
-        download.click();
-        download.remove();
+          download.href = calendarUrl;
+          download.download = "prathik-harshitha-wedding.ics";
+          document.body.append(download);
+          download.click();
+          download.remove();
 
-        setTimeout(() => URL.revokeObjectURL(calendarUrl), 1000);
+          setTimeout(() => URL.revokeObjectURL(calendarUrl), 1000);
+        });
       });
 
-      rsvpForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const formData = new FormData(rsvpForm);
-        const name = formData.get("name");
-        const guests = formData.get("guests");
-        const message = formData.get("message") || "Looking forward to celebrating with you.";
-        const text = `RSVP for ${invitation.couple}%0AName: ${encodeURIComponent(
-          name
-        )}%0AGuests: ${encodeURIComponent(guests)}%0AMessage: ${encodeURIComponent(message)}`;
-        const phone = invitation.whatsappNumber.trim();
-        const url = phone ? `https://wa.me/${phone}?text=${text}` : `https://wa.me/?text=${text}`;
-        window.open(url, "_blank", "noopener,noreferrer");
+      window.addEventListener("load", () => {
+        window.setTimeout(() => {
+          loader.classList.add("is-hidden");
+        }, 650);
       });
 
       updateProgress();
