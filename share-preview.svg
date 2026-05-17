@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Prathik and Harshitha Wedding Invitation</title>
+  <desc id="desc">Luxury navy and gold wedding invitation preview for December 23, 2026 at Townhall Udupi.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#1b1f62"/>
+      <stop offset="58%" stop-color="#080b3c"/>
+      <stop offset="100%" stop-color="#03062f"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#b9893f"/>
+      <stop offset="45%" stop-color="#fff0bd"/>
+      <stop offset="100%" stop-color="#f5d58a"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#fff9e8" stroke-opacity=".055" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="600" cy="315" r="245" fill="none" stroke="#f5d58a" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="600" cy="315" r="195" fill="none" stroke="#f5d58a" stroke-opacity=".16" stroke-width="1"/>
+  <path d="M160 84h880M160 546h880" stroke="url(#gold)" stroke-width="2"/>
+  <path d="M228 120c78 38 143 38 221 0M751 120c78 38 143 38 221 0M228 510c78-38 143-38 221 0M751 510c78-38 143-38 221 0" fill="none" stroke="#f5d58a" stroke-opacity=".65" stroke-width="2"/>
+  <g transform="translate(600 165)">
+    <circle r="62" fill="#080b3c" stroke="url(#gold)" stroke-width="2"/>
+    <circle r="48" fill="none" stroke="#fff0bd" stroke-opacity=".45"/>
+    <text x="0" y="14" text-anchor="middle" font-family="Georgia, serif" font-size="50" fill="#f5d58a">P&amp;H</text>
+  </g>
+  <text x="600" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="78" fill="#f5d58a">Prathik &amp; Harshitha</text>
+  <text x="600" y="338" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#fff9e8">Wedding Muhurat</text>
+  <text x="600" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#fff0bd">December 23, 2026 · 11:28 AM</text>
+  <text x="600" y="456" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#d8cda8">Townhall Udupi</text>
+</svg>
